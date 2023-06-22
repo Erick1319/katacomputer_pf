@@ -1,5 +1,6 @@
+// Inicializacion de variable
 var mostrar = document.getElementById("pkmn");
-
+// inicializaion de la clase con el constructor
 class Pokemon {
     constructor(id,nombre,tipo,altura,peso,image){
         this.id = id;
@@ -9,7 +10,7 @@ class Pokemon {
         this.peso =peso;
         this.image = image;
     }
-
+//definimos una funcion para la creacion del card
     buscar(){
         const imagen = document.createElement('img');
         imagen.src = this.image;
@@ -17,6 +18,8 @@ class Pokemon {
     return (`ID: #${this.id}\nNombre: ${this.nombre} \nTipo: ${this.tipo} \n Altura:${this.altura}mts \n peso: ${this.peso}kgs`)
     }
 }
+
+//creación de un arreglo para guardar los pokemon
 var pokedex = [];
 
 const id001 = new Pokemon("001","Bulbasaur","planta",0.7,6.9,'https://www.pokexperto.net/nds/artwork/1.jpg')
@@ -110,16 +113,19 @@ pokedex.push(id093);
 const id094 =new Pokemon("094","Gengar","fantasma",1.5,40.5,'https://www.pokexperto.net/nds/artwork/94.jpg')
 pokedex.push(id094);
 
+//uso de DOM para resetear la informacion y reiniciar el form
 document.querySelector('form').addEventListener("submit", function(event){
     mostrar.innerHTML='';
 })
-
+//uso del DOM para agregar una funcion de pevención de acciones por default
 document.querySelector('form').addEventListener("submit",function(event){
     event.preventDefault();
 const select = document.getElementById('tipo');
 const selected =select.value;
+//aplicación de un forEach para interactuar con los elementos
 pokedex.forEach(element => {
     if(element.tipo===selected){
+        //creación de las tarjetas de cada pokemon
         const datosPkmn = document.createElement('p')
         datosPkmn.textContent = element.buscar();
         mostrar.appendChild(datosPkmn);
@@ -128,11 +134,12 @@ pokedex.forEach(element => {
 })
 ;
 pokedex.forEach(element => {
+    //creacion por default para cada elemento
     const datosPkmn = document.createElement('p')
         datosPkmn.textContent = element.buscar();
         mostrar.appendChild(datosPkmn);
 });
-
+//aplicaicon de un evento para el DOM, filtrar por numero de ID
 document.querySelector('#searchId').addEventListener("submit",function(event){
     mostrar.innerHTML="";
 })
