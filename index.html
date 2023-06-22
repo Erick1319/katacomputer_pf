@@ -7,10 +7,13 @@
     <title>Pokedex</title>
 </head>
 <body>
+    <!-- Creacion del contenedor tipo flexbox -->
     <div class="container">
-        <h1>Pokedex</h1>
+        <h1 id="pokdx">Pokedex</h1>
+        <div id="busqueda">
+            <!-- implementacion de un form para captura de datos -->
         <form>
-            <lavel for="tipo" >Tipo</lavel>
+            <label for="tipo" >Tipo</label>
             <select id="tipo">
                 <option value="roca">Roca</option>
                 <option value="planta">Planta</option>
@@ -26,9 +29,17 @@
                 <option value="volador">Volador</option>
                 <option value="normal">Normal</option>
                 <option value="lucha">Lucha</option>
-            </select>
+              </select>
             <input type="submit" value="Buscar"/>
         </form>
+        <form id="searchId">
+            <!-- segundo filtro de form -->
+            <label for="id"> Ingresa un Id</label>
+            <input type="text" id="pkId" placeholder="por ejemplo: 001"/>
+            <input type="submit" value="Buscar"> 
+        </form>
+        <div></div>
+    </div>
         <div id="cards">
         <div id="pkmn"></div>
         </div>
